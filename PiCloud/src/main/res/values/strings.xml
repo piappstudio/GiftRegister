@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ /***
+  ~ Pi App Studio. All rights reserved.Copyright (c) 2022.
+  ~ **/
+  -->
+
+<resources>
+    <string name="desc_google_drive_login">Please perform google authentication to sync your details with Google drive.  Please note, you will be redirected to google api for further authentication and you may see \"UNVERIFIED APP\" dialog due to unavailability of our own server. \n\nWe don\'t steal any of your data, please read privacy policy for more details</string>
+    <string name="desc_google_drive_logout">This system using your google drive account to sync your details. Please use logout option to Logout, if you no longer wanted to sync the data</string>
+    <string name="title_google_drive">Let\'s sync with GoogleDrive</string>
+    <string name="btn_login">Google SignIn</string>
+    <string name="btn_logout">Google SignOut</string>
+    <string name="desc_auth_failed">Authentication is failed, please try again later</string>
+    <string name="acc_sync_google_drive">Sync with Google drive</string>
+    <string name="user_name">User Name</string>
+    <string name="title_sync_summary">Data sync summary</string>
+    <string name="last_sync_time">Last sync time</string>
+    <string name="no_sync_yet">Data synchronization is not happen yet</string>
+    <string name="sync_schedule">Manual synchronization is required all the time!</string>
+    <string name="acc_sync_file">Sync files</string>
+    <string name="drive_sync_notification_title">GiftRegister Google Drive Sync</string>
+    <string name="default_message">Sync is in progress</string>
+    <string name="notification_channel_id">Gift Register</string>
+    <string name="notification_title">Sync data with Google Drive</string>
+    <string name="cancel_download">Cancel</string>
+    <string name="sync_started">Google drive sync started</string>
+    <string name="title_drive_back">Google Drive Backup</string>
+</resources>

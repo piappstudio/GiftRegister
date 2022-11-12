@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Moi</string>
+    <string name="perm_read_label">GiftRegister_Read</string>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ /***
+  ~ Pi App Studio. All rights reserved.Copyright (c) 2022.
+  ~ **/
+  -->
+
+<resources>
+    <string name="permission_title">Permission request</string>
+    <string name="ok">OK</string>
+    <string name="acc_back">Back</string>
+    <string name="retry">Retry</string>
+    <string name="general_error">Failed: Something went wrong, please relaunch the app</string>
+    <string name="db_error">Failed: Something went wrong while update database. Please try again later</string>
+
+</resources>
