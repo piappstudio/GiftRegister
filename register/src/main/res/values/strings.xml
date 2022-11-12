@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ /***
+  ~ Pi App Studio. All rights reserved.Copyright (c) 2022.
+  ~ **/
+  -->
+
+<resources>
+    <string name="title_events">Events</string>
+    <string name="acc_add_new_event">Add new events</string>
+    <string name="your_event_is_empty">Your event is empty</string>
+    <string name="lets_add_your_event">Let\'s add your event</string>
+    <string name="title_name">Name</string>
+    <string name="guestlist">GuestList</string>
+    <string name="title_edit_guest">Edit Guest </string>
+    <string name="type_name">Type Name</string>
+    <string name="type_address">Type Address</string>
+    <string name="name"> Name</string>
+    <string name="address">Address</string>
+    <string name="_address">Address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="submit">Submit</string>
+    <string name="edit_event">Edit Event</string>
+    <string name="_date">Date (DD/MM/YYYY)</string>
+    <string name="people">People</string>
+    <string name="please_enter_your_event">Please enter your event</string>
+    <string name="error_name">Please enter name</string>
+    <string name="error_date">Please enter valid event date</string>
+    <string name="error_address">Enter your address</string>
+    <string name="error_quantity">Enter the number</string>
+    <string name="icon_address">Address</string>
+    <string name="select_gift_type">Select GiftType</string>
+    <string name="cash">Cash</string>
+    <string name="gold">Gold</string>
+    <string name="others">Others</string>
+    <string name="back">Back</string>
+    <string name="gold_in_gram">Gold (in grams)</string>
+    <string name="gift_detail">Gift Description</string>
+    <string name="acc_add_photo">Add photos</string>
+    <string name="camera_permission_desc">Please provide camera permission to take a photo.</string>
+    <string name="acc_delete">Delete</string>
+    <string name="acc_close">Close</string>
+    <string name="acc_setting">Setting Configuration</string>
+    <string name="search">Search guest by name and place</string>
+    <string name="clear_all">Clear all</string>
+    <string name="sort_filter"><![CDATA[Sort & Filter]]></string>
+    <string name="navigate">Navigate</string>
+    <string name="gift_type">Gift Type</string>
+    <string name="sort_by_name">Sort By Name</string>
+    <string name="sort">Sort</string>
+    <string name="sort_name_by_ascending">Name by Asc (A->Z)</string>
+    <string name="sort_name_by_descending">Name by Des (Z->A)</string>
+    <string name="sort_amount_by_ascending">Amount by Asc (0->10)</string>
+    <string name="sort_amount_by_descending">Amount by Des (10->0)</string>
+    <string name="group_by">Group By</string>
+    <string name="view__result">View Result</string>
+    <string name="ascending">Ascending</string>
+    <string name="descending">Descending</string>
+    <string name="opt_default">Default</string>
+
+    <string name="option_place">Place</string>
+    <string name="option_all">All</string>
+    <string name="acc_filter">Filter the item with different option</string>
+    <string name="about_screen">About</string>
+    <string name="google_drive_backup">Google Drive Backup</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="filter">Filter</string>
+    <string name="delete">Delete</string>
+    <string name="icons">Icons</string>
+    <string name="btn_ok"> Ok</string>
+    <string name="title_yes"> Yes</string>
+    <string name="btn_no">No</string>
+    <string name="delete_title">Are you really wants to Delete?</string>
+    <string name="delete_message">\"This operation cannot be revocable,Please press yes to continue \"</string>
+    <string name="email_id">Email ID</string>
+    <string name="digital_diary">Digital Diary</string>
+    <string name="email">Email</string>
+    <string name="gmail_id">Piappstudio@gmail.com</string>
+    <string name="fresh_look">Fresh Look</string>
+    <string name="piappstudio_gmail">piappstudio@gmail.com</string>
+    <string name="youtube_link">https://www.youtube.com/piappstudio</string>
+    <string name="twitter_link">https://twitter.com/piappstudio</string>
+    <string name="linkedin_link">https://www.linkedin.com/company/piappstudio/</string>
+    <string name="facebook_link">https://www.facebook.com/realpiappstudio</string>
+    <string name="app_version">App Version: </string>
+    <string name="digital_diary_url">https://play.google.com/store/apps/details?id=com.bob.offlinediary</string>
+    <string name="fresh_look_url">https://play.google.com/store/apps/details?id=com.piappstudio.freshlook</string>
+    <string name="travel_insurance_url">https://play.google.com/store/apps/details?id=com.piappstudio.travelasst</string>
+    <string name="guest_insert_success">Success: New guest has been added!</string>
+    <string name="guest_update_success">Success: Guest has been updated!</string>
+    <string name="delete_guest_success">Success: Guest has been deleted!</string>
+    <string name="event_delete_success">Success: Event has been deleted!</string>
+    <string name="event_insert_success">Success: Event has been added!</string>
+
+
+</resources>
