@@ -69,6 +69,7 @@ class PiDriveManager @Inject constructor(
             ).setApplicationName(piSession.appName)
                 .build()
         }
+        Timber.e(Throwable("Returning null to caller"))
         return null
     }
 

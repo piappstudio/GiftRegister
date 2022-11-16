@@ -57,7 +57,7 @@ class AuthIntroViewModel @Inject constructor(
         .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
         .requestEmail()
         .requestProfile()
-        .requestScopes(Scope(DriveScopes.DRIVE_FILE), Scope(DriveScopes.DRIVE_APPDATA))
+        .requestScopes(Scope(DriveScopes.DRIVE_FILE), Scope(DriveScopes.DRIVE), Scope(DriveScopes.DRIVE_APPDATA))
         .build()
 
     val googleSignInClient = GoogleSignIn.getClient(context, gso)

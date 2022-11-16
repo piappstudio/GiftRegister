@@ -29,10 +29,16 @@ class GiftApp : Application(), Configuration.Provider {
     lateinit var preference: PiPreference
 
     @Inject
+    lateinit var piLogTree: PiLogTree
+
+    @Inject
     lateinit var piSession: PiSession
     override fun onCreate() {
         super.onCreate()
+
         FirebaseApp.initializeApp(this)
+
+        Timber.plant(piLogTree)
         if (BuildConfig.DEBUG) {
             Timber.plant(Timber.DebugTree())
         }

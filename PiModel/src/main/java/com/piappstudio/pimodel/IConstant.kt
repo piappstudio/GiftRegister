@@ -30,5 +30,5 @@ fun Double.toCurrency(): String {
     val format = NumberFormat.getInstance(Locale.getDefault())
     val value = format.format(String.format("%.2f", this).toDouble())
 
-    return "${currency.symbol} $value"
+    return "$value"
 }

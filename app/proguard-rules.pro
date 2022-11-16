@@ -16,10 +16,29 @@
 # debugging stack traces.
 -keepattributes SourceFile,LineNumberTable
 
+-keepnames class * extends androidx.startup.Initializer
+
+
+# For Google drive
+-keep class com.google.api.services.drive.** {*;}
+-keep class com.google.api.client.** {*;}
+-keepattributes Signature,RuntimeVisibleAnnotations,AnnotationDefault
+
+-keep class com.google.** { *;}
+-keep interface com.google.** { *;}
+-dontwarn com.google.**
+
+# Needed by google-http-client-android when linking against an older platform version
+-dontwarn com.google.api.client.extensions.android.**
+
+# Needed by google-api-client-android when linking against an older platform version
+-dontwarn com.google.api.client.googleapis.extensions.android.**
+
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
 -keep class com.piappstudio.pimodel.** {*;}
 
+-keep class com.crashlytics.** { *;}
 -keep public class * extends android.app.Activity
