@@ -6,6 +6,7 @@ plugins {
 }
 
 android {
+    namespace 'com.piappstudio.pinetwork'
     compileSdk 33
 
     defaultConfig {
@@ -29,37 +30,24 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    buildFeatures {
-        compose true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion compose_version
-    }
 }
 
 dependencies {
 
     implementation "androidx.core:core-ktx:$core_ktx_version"
-    implementation "androidx.appcompat:appcompat:$appcompact_version"
-    implementation "androidx.compose.ui:ui:$compose_version"
-    implementation "androidx.compose.material3:$material3_version"
+    implementation 'androidx.appcompat:appcompat:1.4.2'
+    implementation 'com.google.android.material:material:1.6.1'
+    implementation project(path: ':PiModel')
+    // Retrofit & OkHttp
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.8.0"
 
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
 
-    implementation project(path: ':PiNavigation')
-    implementation project(path: ':PiNetwork')
-    // For Timber
-    implementation "com.jakewharton.timber:timber:$timber_version"
-
-    // To integrate Hilt Android
     implementation "com.google.dagger:hilt-android:$hilt_version"
-    kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
-    // To use additional extensions of navigation frameworks like hiltViewModel()
-    implementation "androidx.hilt:hilt-navigation-fragment:$hilt_nav_fragment"
-    implementation "androidx.hilt:hilt-navigation-compose:$hilt_navigation_compose"
+    kapt "com.google.dagger:hilt-compiler:$hilt_version"
 
-    // To integrate Navigation
-    implementation "androidx.navigation:navigation-compose:$nav_version"
-    implementation project(path: ':pitheme')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'

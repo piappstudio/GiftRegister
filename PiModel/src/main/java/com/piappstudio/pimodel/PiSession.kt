@@ -16,4 +16,5 @@ class PiSession @Inject constructor() {
     var packageName:String?=null
     var appVersion:String? = null
     var buildNumber:String? = null
+    var appConfig:AppConfig? = null
 }

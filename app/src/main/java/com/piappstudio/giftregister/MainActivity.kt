@@ -10,6 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.google.firebase.FirebaseApp
@@ -18,39 +19,65 @@ import com.google.firebase.analytics.ktx.analytics
 import com.google.firebase.ktx.Firebase
 import com.piappstudio.giftregister.navgraph.AppNavGraph
 import com.piappstudio.pimodel.Constant.EMPTY_STRING
+import com.piappstudio.pimodel.PiSession
+import com.piappstudio.pimodel.Resource
+import com.piappstudio.pimodel.database.PiDataRepository
 import com.piappstudio.pimodel.error.ErrorCode
 import com.piappstudio.pinavigation.ErrorManager
 import com.piappstudio.pinavigation.ErrorState
 import com.piappstudio.pinavigation.NavManager
+import com.piappstudio.pinetwork.PiRemoteDataRepository
 import com.piappstudio.pitheme.route.Route
 import com.piappstudio.pitheme.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private lateinit var firebaseAnalytics: FirebaseAnalytics
-
-
     @Inject
     lateinit var navManager: NavManager
     @Inject
     lateinit var errorManager:ErrorManager
 
+    @Inject
+    lateinit var remoteDataRepository: PiRemoteDataRepository
 
+    @Inject
+    lateinit var piSession: PiSession
 
-    lateinit var navController: NavHostController
+    private lateinit var navController: NavHostController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        // Obtain the FirebaseAnalytics instance.
-       firebaseAnalytics=FirebaseAnalytics.getInstance(this)
+        fetchConfig()
         setContent {
             AppTheme {
                 SetUpAppNavGraph()
             }
+        }
+    }
+
+    private fun fetchConfig() {
+        lifecycleScope.launchWhenCreated {
+            remoteDataRepository.fetchAppConfig().onEach {
+                when (it.status) {
+                    Resource.Status.SUCCESS -> {
+                        piSession.appConfig = it.data
+                        if (it.data?.forceUpdate == true) {
+                            // TODO: Show force to update screen
+                        }
+                    }
+                    Resource.Status.ERROR -> {
+                        Timber.e(Throwable("Error while fetch config: ${it.error?.message}"))
+                    } else -> {
+
+                    }
+                }
+            }.collect()
         }
     }
 
@@ -65,7 +92,9 @@ class MainActivity : ComponentActivity() {
         Scaffold(
             snackbarHost = { SnackbarHost(snackbarHostState) }
         ) {
-            Surface(modifier = Modifier.padding(it).fillMaxSize()) {
+            Surface(modifier = Modifier
+                .padding(it)
+                .fillMaxSize()) {
                 AppNavGraph(navController = navController)
             }
         }

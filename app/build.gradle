@@ -40,7 +40,6 @@ android {
 
     buildTypes {
         debug {
-            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         release {
@@ -92,9 +91,14 @@ dependencies {
     implementation project(path: ':register')
     implementation project(path: ':PiCloud')
     implementation project(path: ':PiNavigation')
-
+    implementation project(path: ':PiNetwork')
     // To integrate Navigation
     implementation "androidx.navigation:navigation-compose:$nav_version"
+
+
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.8.0"
 
     // To use additional extensions of navigation frameworks like hiltViewModel()
     implementation "com.google.dagger:hilt-android:$hilt_version"
