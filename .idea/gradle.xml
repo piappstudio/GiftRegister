@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
@@ -13,7 +12,7 @@
             <option value="$PROJECT_DIR$/PiCloud" />
             <option value="$PROJECT_DIR$/PiModel" />
             <option value="$PROJECT_DIR$/PiNavigation" />
-            <option value="$PROJECT_DIR$/PiNetwork" />
+            <option value="$PROJECT_DIR$/PiRepository" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/authentication" />
             <option value="$PROJECT_DIR$/pitheme" />
