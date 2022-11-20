@@ -11,5 +11,9 @@
     <string name="retry">Retry</string>
     <string name="general_error">Failed: Something went wrong, please relaunch the app</string>
     <string name="db_error">Failed: Something went wrong while update database. Please try again later</string>
+    <string name="update_title">Time to update</string>
+    <string name="we_add_lost_of_new_features_and">We added lot of new features and fix some bugs to make your experiences as smooth as possible</string>
+    <string name="update_app">Update App</string>
+    <string name="not_now">Not Now</string>
 
 </resources>

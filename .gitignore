@@ -31,3 +31,4 @@ register/src/main/res/values/ids.xml
 .gradle/7.3.3/executionHistory/executionHistory.lock
 Playstore/GiftRegisterKey
 Playstore/google-services.json
+.DS_Store

@@ -27,6 +27,7 @@ import com.piappstudio.pinavigation.ErrorManager
 import com.piappstudio.pinavigation.ErrorState
 import com.piappstudio.pinavigation.NavManager
 import com.piappstudio.pinetwork.PiRemoteDataRepository
+import com.piappstudio.pitheme.component.UpdateScreen
 import com.piappstudio.pitheme.route.Route
 import com.piappstudio.pitheme.theme.AppTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -53,23 +54,26 @@ class MainActivity : ComponentActivity() {
     private lateinit var navController: NavHostController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        fetchConfig()
         setContent {
             AppTheme {
                 SetUpAppNavGraph()
+                fetchConfig()
             }
         }
     }
 
+    @Composable
     private fun fetchConfig() {
+        var forceUpdate by remember { mutableStateOf(false) }
+        if (forceUpdate) {
+            UpdateScreen()
+        }
         lifecycleScope.launchWhenCreated {
             remoteDataRepository.fetchAppConfig().onEach {
                 when (it.status) {
                     Resource.Status.SUCCESS -> {
                         piSession.appConfig = it.data
-                        if (it.data?.forceUpdate == true) {
-                            // TODO: Show force to update screen
-                        }
+                        forceUpdate = piSession.isRequiredUpdate()
                     }
                     Resource.Status.ERROR -> {
                         Timber.e(Throwable("Error while fetch config: ${it.error?.message}"))
