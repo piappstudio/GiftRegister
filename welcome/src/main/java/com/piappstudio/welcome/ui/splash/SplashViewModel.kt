@@ -8,6 +8,9 @@ package com.piappstudio.welcome.ui.splash
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.piappstudio.pianalytic.IPiAnalyticProvider
+import com.piappstudio.pianalytic.PiAnalyticConstant
+import com.piappstudio.pianalytic.PiTracker
 import com.piappstudio.pimodel.Resource
 import com.piappstudio.pinavigation.NavManager
 import com.piappstudio.pinetwork.PiRemoteDataRepository
@@ -19,7 +22,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @HiltViewModel
-class SplashViewModel @Inject constructor(val navManager: NavManager, val piRemoteDataRepository: PiRemoteDataRepository):ViewModel() {
+class SplashViewModel @Inject constructor(val navManager: NavManager, val piRemoteDataRepository: PiRemoteDataRepository, val piTracker: PiTracker):ViewModel() {
 
     init {
         viewModelScope.launch {
@@ -29,6 +32,7 @@ class SplashViewModel @Inject constructor(val navManager: NavManager, val piRemo
 
                     }
                     Resource.Status.ERROR -> {
+                        piTracker.logEvent("Exception", PiAnalyticConstant.Page.SPLASH)
                         Timber.e(Throwable("Error while fetch config: ${it.error?.message}"))
                     } else -> {
 

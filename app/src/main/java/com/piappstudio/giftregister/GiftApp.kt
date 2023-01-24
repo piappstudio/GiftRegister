@@ -16,9 +16,11 @@ import com.piappstudio.picloud.worker.makeStatusNotification
 import androidx.work.Configuration
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.gson.Gson
+import com.piappstudio.pianalytic.PiTracker
 import com.piappstudio.pimodel.PiSession
 import com.piappstudio.pimodel.Resource
 import com.piappstudio.pimodel.database.PiDataRepository
+import com.piappstudio.pimodel.pref.PiPrefKey
 import com.piappstudio.pimodel.pref.PiPreference
 import com.piappstudio.pinetwork.PiRemoteDataRepository
 import dagger.hilt.android.HiltAndroidApp
@@ -31,6 +33,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import timber.log.Timber
+import java.util.UUID
 import javax.inject.Inject
 
 @HiltAndroidApp
@@ -47,6 +50,8 @@ class GiftApp : Application(), Configuration.Provider {
     @Inject
     lateinit var piSession: PiSession
 
+    @Inject
+    lateinit var piTracker: PiTracker
 
     override fun onCreate() {
         super.onCreate()
@@ -62,6 +67,13 @@ class GiftApp : Application(), Configuration.Provider {
         piSession.packageName = BuildConfig.APPLICATION_ID
         piSession.appVersion = BuildConfig.VERSION_NAME
         piSession.buildNumber = BuildConfig.VERSION_CODE.toString()
+        var deviceId = preference.getString(PiPrefKey.UUID)
+        if (deviceId == null) {
+            deviceId = UUID.randomUUID().toString()
+            preference.save(PiPrefKey.UUID, deviceId)
+        }
+        piSession.uuid = deviceId
+        piTracker.trackUserProperty(mapOf(PiPrefKey.UUID to deviceId))
 
     }
 

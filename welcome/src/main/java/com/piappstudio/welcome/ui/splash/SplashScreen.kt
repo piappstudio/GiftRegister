@@ -15,6 +15,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavOptions
+import com.piappstudio.pianalytic.PiAnalyticConstant
 import com.piappstudio.pinavigation.NavInfo
 import com.piappstudio.pitheme.component.PILottie
 import com.piappstudio.pitheme.route.Root
@@ -26,6 +27,11 @@ import timber.log.Timber
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SplashScreen(viewModel: SplashViewModel = hiltViewModel()) {
+
+    LaunchedEffect(key1 = Unit) {
+        viewModel.piTracker.logEvent(PiAnalyticConstant.SCREEN_VIEW , PiAnalyticConstant.Page.SPLASH)
+    }
+
     Scaffold(
         modifier = Modifier
             .fillMaxSize()
@@ -54,8 +60,7 @@ fun SplashScreen(viewModel: SplashViewModel = hiltViewModel()) {
                 LaunchedEffect(key1 = progress) {
                     Timber.d("Progress : $progress")
                     if (progress == 1.0f) {
-
-
+                        viewModel.piTracker.logEvent(PiAnalyticConstant.NAVIGATE, PiAnalyticConstant.Page.SPLASH, mapOf( PiAnalyticConstant.Key.URI to Root.HOME))
                         viewModel.navManager.navigate(NavInfo(id = Root.HOME,
                             navOption = NavOptions.Builder().setPopUpTo(Route.Welcome.SPLASH, inclusive = true).build()))
 

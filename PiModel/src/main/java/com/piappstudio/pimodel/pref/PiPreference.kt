@@ -19,7 +19,9 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKeys
+import com.piappstudio.pimodel.pref.PiPrefKey.UUID
 import dagger.hilt.android.qualifiers.ApplicationContext
+import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -32,6 +34,7 @@ object PiPrefKey {
     const val GOOGLE_DRIVE_FOLDER_ID = "google_drive_folder_id"
     const val JSON_FILE_ID = "json_file_id"
     const val IS_USER_LOGGED_IN = "is_user_logged_in"
+    const val UUID = "device_id"
 
 }
 @Singleton
@@ -52,6 +55,12 @@ class PiPreference @Inject constructor(@ApplicationContext val context: Context)
         EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM
     )
 
+    init {
+        val uuid = getString(UUID)
+        if (uuid == null) {
+            save(UUID, UUID.random())
+        }
+    }
 
     fun <T> save(key: String, value: T) {
         with(sharedPreferences.edit()) {

@@ -14,6 +14,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.piappstudio.pianalytic.PiAnalyticConstant
 import com.piappstudio.pimodel.Resource
 import com.piappstudio.pinavigation.NavInfo
 import com.piappstudio.pitheme.component.PiProgressIndicator
@@ -29,6 +30,9 @@ import kotlinx.coroutines.launch
 @Composable
 fun EventHome(viewModel: EditEventViewModel = hiltViewModel(), eventListScreenViewModel: EventListScreenViewModel = hiltViewModel()) {
 
+    LaunchedEffect(key1 = Unit) {
+        viewModel.piTracker.logEvent(PiAnalyticConstant.SCREEN_VIEW , PiAnalyticConstant.Page.EVENT_LIST)
+    }
     val bottomSheetScaffoldState = rememberBottomSheetScaffoldState(
         bottomSheetState = BottomSheetState(BottomSheetValue.Collapsed)
     )
@@ -55,6 +59,7 @@ fun EventHome(viewModel: EditEventViewModel = hiltViewModel(), eventListScreenVi
                     eventListScreenViewModel.fetchEventList()
                     coroutineScope.launch {
                         bottomSheetScaffoldState.bottomSheetState.collapse()
+                        viewModel.piTracker.logEvent(PiAnalyticConstant.COLLAPSED , PiAnalyticConstant.Page.EVENT_LIST)
 
                     }
                 }
@@ -69,6 +74,7 @@ fun EventHome(viewModel: EditEventViewModel = hiltViewModel(), eventListScreenVi
         }, onClickFloatingAction =   {
             coroutineScope.launch {
                 bottomSheetScaffoldState.bottomSheetState.expand()
+                viewModel.piTracker.logEvent(PiAnalyticConstant.EXPENDED , PiAnalyticConstant.Page.EVENT_LIST)
             }
         },
         onClickDeleteItem = {eventInfo->

@@ -47,6 +47,7 @@ dependencies {
 
     implementation project(path: ':PiNavigation')
     implementation project(path: ':PiNetwork')
+    implementation project(path: ':PiAnalytic')
     // For Timber
     implementation "com.jakewharton.timber:timber:$timber_version"
 

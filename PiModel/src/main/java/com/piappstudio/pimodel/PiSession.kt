@@ -19,6 +19,7 @@ class PiSession @Inject constructor() {
     var appVersion: String? = null
     var buildNumber: String? = null
     var appConfig: AppConfig? = null
+    var uuid:String? = null
     fun isRequiredUpdate(): Boolean {
         try {
             if (appConfig?.forceUpdate?.enabled == true) {

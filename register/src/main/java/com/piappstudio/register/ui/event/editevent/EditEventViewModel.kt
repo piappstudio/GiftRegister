@@ -8,6 +8,7 @@ package com.piappstudio.register.ui.event.editevent
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.piappstudio.pianalytic.PiTracker
 import com.piappstudio.register.R
 import com.piappstudio.pimodel.Constant
 import com.piappstudio.pimodel.EventInfo
@@ -28,7 +29,9 @@ import javax.inject.Inject
 class EditEventViewModel @Inject constructor(
     private val piDataRepository: PiDataRepository,
     private val errorManager: ErrorManager,
-    private val resourceHelper: ResourceHelper
+    private val resourceHelper: ResourceHelper,
+    val piTracker: PiTracker
+    
 ) : ViewModel() {
     // Model
     private val _eventInfo = MutableStateFlow(EventInfo())
