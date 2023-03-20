@@ -32,6 +32,7 @@ import com.piappstudio.pimodel.Resource
 import com.piappstudio.pitheme.component.PiErrorView
 import com.piappstudio.pitheme.component.PiProgressIndicator
 import com.piappstudio.pitheme.theme.Dimen
+import com.piappstudio.pitheme.theme.LocalAnalytic
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalComposeUiApi::class)
 @Composable
@@ -54,7 +55,9 @@ fun EditEventScreen(viewModel: EditEventViewModel ,callback:()->Unit) {
         val eventInfo by viewModel.eventInfo.collectAsState()
         val errorInfo by viewModel.errorInfo.collectAsState()
 
+        val piTracker = LocalAnalytic.current
 
+        piTracker?.logEvent("Calling from HOME")
         if (errorInfo.progress.status == Resource.Status.LOADING) {
             PiProgressIndicator()
         } else if (errorInfo.progress.status == Resource.Status.SUCCESS) {

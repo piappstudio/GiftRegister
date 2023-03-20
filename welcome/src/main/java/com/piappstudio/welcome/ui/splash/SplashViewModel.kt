@@ -8,7 +8,6 @@ package com.piappstudio.welcome.ui.splash
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.piappstudio.pianalytic.IPiAnalyticProvider
 import com.piappstudio.pianalytic.PiAnalyticConstant
 import com.piappstudio.pianalytic.PiTracker
 import com.piappstudio.pimodel.Resource

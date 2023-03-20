@@ -58,7 +58,7 @@ fun NavGraphBuilder.eventGraph() {
 
     }
 }
-
+//navController.navigate("profile?userId=user1234")
 @OptIn(ExperimentalMaterialApi::class)
 fun NavGraphBuilder.giftGraph() {
 

@@ -8,20 +8,19 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.google.firebase.FirebaseApp
-import com.google.firebase.analytics.FirebaseAnalytics
-import com.google.firebase.analytics.ktx.analytics
-import com.google.firebase.ktx.Firebase
 import com.piappstudio.giftregister.navgraph.AppNavGraph
+import com.piappstudio.pianalytic.PiTracker
 import com.piappstudio.pimodel.Constant.EMPTY_STRING
 import com.piappstudio.pimodel.PiSession
 import com.piappstudio.pimodel.Resource
-import com.piappstudio.pimodel.database.PiDataRepository
 import com.piappstudio.pimodel.error.ErrorCode
 import com.piappstudio.pinavigation.ErrorManager
 import com.piappstudio.pinavigation.ErrorState
@@ -30,10 +29,10 @@ import com.piappstudio.pinetwork.PiRemoteDataRepository
 import com.piappstudio.pitheme.component.UpdateScreen
 import com.piappstudio.pitheme.route.Route
 import com.piappstudio.pitheme.theme.AppTheme
+import com.piappstudio.pitheme.theme.LocalAnalytic
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -51,19 +50,29 @@ class MainActivity : ComponentActivity() {
     @Inject
     lateinit var piSession: PiSession
 
+    @Inject
+    lateinit var piTracker: PiTracker
+
     private lateinit var navController: NavHostController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+
             AppTheme {
-                SetUpAppNavGraph()
-                fetchConfig()
+                CompositionLocalProvider(LocalAnalytic provides piTracker) {
+                    SetUpAppNavGraph()
+                    fetchConfig()
+                }
+
             }
         }
     }
 
     @Composable
     private fun fetchConfig() {
+
+        val context = LocalContext.current
+
         var forceUpdate by remember { mutableStateOf(false) }
         if (forceUpdate) {
             UpdateScreen()

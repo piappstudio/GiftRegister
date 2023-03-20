@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -21,6 +22,7 @@ import com.piappstudio.pitheme.component.PILottie
 import com.piappstudio.pitheme.route.Root
 import com.piappstudio.pitheme.route.Route
 import com.piappstudio.pitheme.theme.Dimen
+import com.piappstudio.pitheme.theme.LocalAnalytic
 import com.piappstudio.welcome.R
 import timber.log.Timber
 
@@ -52,6 +54,9 @@ fun SplashScreen(viewModel: SplashViewModel = hiltViewModel()) {
                     )
             ) {
 
+
+                val piTracker = LocalAnalytic.current
+
                 val progress = PILottie(resourceId = R.raw.gift, modifier = Modifier.fillMaxSize(0.6f))
                 Text(text =  stringResource(id = R.string.title_gift_register), style = MaterialTheme.typography.headlineSmall, fontWeight = FontWeight.Black)
                 Spacer(modifier = Modifier.height(Dimen.space))
@@ -60,7 +65,7 @@ fun SplashScreen(viewModel: SplashViewModel = hiltViewModel()) {
                 LaunchedEffect(key1 = progress) {
                     Timber.d("Progress : $progress")
                     if (progress == 1.0f) {
-                        viewModel.piTracker.logEvent(PiAnalyticConstant.NAVIGATE, PiAnalyticConstant.Page.SPLASH, mapOf( PiAnalyticConstant.Key.URI to Root.HOME))
+                        piTracker?.logEvent(PiAnalyticConstant.NAVIGATE, PiAnalyticConstant.Page.SPLASH, mapOf( PiAnalyticConstant.Key.URI to Root.HOME))
                         viewModel.navManager.navigate(NavInfo(id = Root.HOME,
                             navOption = NavOptions.Builder().setPopUpTo(Route.Welcome.SPLASH, inclusive = true).build()))
 

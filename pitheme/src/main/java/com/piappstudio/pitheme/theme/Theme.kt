@@ -6,10 +6,14 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.ViewCompat
+import com.piappstudio.pianalytic.PiTracker
+
+val LocalAnalytic = staticCompositionLocalOf<PiTracker?> {null}
 
 
 private val LightColors = lightColorScheme(
