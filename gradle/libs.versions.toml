@@ -1,0 +1,143 @@
+[versions]
+accompanistPermissions = "0.26.4-beta"
+coilCompose = "2.2.1"
+compose_version = "1.4.0-alpha02"
+constraintlayoutCompose = "1.0.1"
+core_ktx_version = "1.9.0"
+customviewPoolingcontainer = "1.0.0"
+material3_version =  "1.0.0-alpha13"
+lifecycle_version = "2.4.1"
+activity_compose_version = "1.6.1"
+nav_version = "2.5.3"
+hilt_version = "2.42"
+hilt_nav_fragment = "1.0.0"
+lottieVersion = "5.2.0"
+timber_version = "5.0.1"
+hilt_navigation_compose = "1.0.0"
+room_version = "2.5.0-beta01"
+kotlin_version = "1.7.21"
+gson = "2.9.0"
+crypto = "1.0.0"
+placeholder_version = "0.24.11-rc"
+play_services_auth = "20.3.0"
+play_services_drive = "17.0.0"
+accompanist_version = "0.26.4-beta"
+appcompact_version = "1.5.1"
+retrofit_version = "2.9.0"
+ui_tooling = "1.2.1"
+work_version = "2.7.1"
+pagging_version = "3.1.1"
+hilt_worker = "1.0.0"
+okhttp3 = "4.8.0"
+junit = "4.13.2"
+test-ext = "1.1.4"
+androidxEspresso = "3.5.0"
+
+# Firebase Services
+# https", name = "//firebase.google.com/support/release-notes/android
+firebase-analytics = "21.2.2"
+firebase-bom = "31.5.0"
+firebase-config = "21.3.0"
+firebase-crashlytics = "18.3.6"
+firebase-crashlytics-gradle = "2.9.4"
+firebase-messaging = "23.1.2"
+gms-googleServices = "4.3.15"
+
+com-android-application = "7.4.1"
+org-jetbrains-kotlin-android = "1.7.20"
+
+#Google service api version
+google-api-services-drive =  "v3-rev20220815-2.0.0"
+api-client-android = "2.0.0"
+oauth2-http = "1.11.0"
+coroutines-android = "1.6.1"
+
+paging_compose="1.0.0-alpha16"
+camera-view = "1.1.0"
+[libraries]
+accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanistPermissions" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
+constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayoutCompose" }
+core-ktx = {group = "androidx.core", name ="core-ktx", version.ref = "core_ktx_version"}
+compose-ui = {group = "androidx.compose.ui", name="ui", version.ref = "compose_version"}
+compose-navigation = {group = "androidx.navigation", name="navigation-compose", version.ref = "nav_version"}
+compose-material3 = {group = "androidx.compose.material3", name ="material3", version.ref = "material3_version"}
+activity-compose = {group = "androidx.activity", name = "activity-compose", version.ref = "activity_compose_version"}
+customview-poolingcontainer = { module = "androidx.customview:customview-poolingcontainer", version.ref = "customviewPoolingcontainer" }
+lifecycle-runtime-ktx = {group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle_version"}
+timber = {group = "com.jakewharton.timber", name = "timber", version.ref = "timber_version"}
+navigation-compose = {group = "androidx.navigation", name = "navigation-compose", version.ref="nav_version"}
+retrofit = {group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit_version"}
+retrofit-gson = {group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "retrofit_version"}
+okhttp-logging = {group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref  = "okhttp3"}
+hilt-android = {group = "com.google.dagger", name="hilt-android", version.ref = "hilt_version"}
+hilt-android-compiler = {group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt_version"}
+hilt-navigation = {group = "androidx.hilt", name = "hilt-navigation-fragment", version.ref = "hilt_nav_fragment"}
+hilt-common = {group = "androidx.hilt", name = "hilt-common", version.ref = "hilt_worker"}
+hilt-navigation-compose = {group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hilt_navigation_compose"}
+hilt-work = {group = "androidx.hilt", name = "hilt-work", version.ref = "hilt_worker"}
+work-runtime = {group = "androidx.work", name = "work-runtime-ktx", version.ref = "work_version"}
+nav-fragment-ktx = {group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "nav_version"}
+#nav-ui = {module = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "nav_version"}
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+test-ext = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "test-ext" }
+
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidxEspresso" }
+
+ui-test = { group = "androidx.compose.ui", name = "ui-test-junit4", version.ref = "compose_version" }
+ui-tooling= {group = "androidx.compose.ui", name = "ui-tooling", version.ref = "compose_version"}
+ui-tooling-preview= {group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose_version"}
+ui-test-manifest= {group = "androidx.compose.ui", name = "ui-test-manifest", version.ref = "compose_version"}
+
+# Services
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx", version.ref = "firebase-analytics" }
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebase-bom" }
+firebase-analytics-ktx = { group = "com.google.firebase", name = "firebase-analytics-ktx"}
+firebase-config = { group = "com.google.firebase", name = "firebase-config-ktx", version.ref = "firebase-config" }
+firebase-crashlytics-ktx = { group = "com.google.firebase", name = "firebase-crashlytics-ktx"}
+firebase-crashlytics-gradle = { group = "com.google.firebase", name = "firebase-crashlytics-gradle", version.ref = "firebase-crashlytics-gradle" }
+firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging-ktx", version.ref = "firebase-messaging" }
+gms-googleServices = { group = "com.google.gms", name = "google-services", version.ref = "gms-googleServices" }
+
+#Google drive
+gms-play-services-auth = { group = "com.google.android.gms", name = "play-services-auth", version.ref = "play_services_auth" }
+gms-play-services-drive = { group = "com.google.android.gms", name = "play-services-drive", version.ref = "play_services_drive" }
+google-api-services-drive = {group = "com.google.apis", name = "google-api-services-drive", version.ref = "google-api-services-drive"}
+api-client-android = {group = "com.google.api-client", name = "google-api-client-android", version.ref = "api-client-android"}
+oauth2-http = {group = "com.google.auth", name = "google-auth-library-oauth2-http", version.ref = "oauth2-http"}
+paging-common = {group = "androidx.paging", name = "paging-common-ktx", version.ref = "pagging_version"}
+paging-compose = {group = "androidx.paging", name = "paging-compose", version.ref = "paging_compose"}
+google-code-gson = {group = "com.google.code.gson", name = "gson", version.ref = "gson"}
+crypto = {group = "androidx.security", name = "security-crypto", version.ref = "crypto"}
+coroutines-android = {group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines-android"}
+
+#Camera
+camera-view = {group = "androidx.camera", name = "camera-view", version.ref = "camera-view"}
+#Room Database
+room = {group = "androidx.room", name = "room-runtime", version.ref = "room_version"}
+room-compiler = {group = "androidx.room", name = "room-compiler", version.ref = "room_version"}
+room-ktx = {group = "androidx.room", name = "room-ktx", version.ref = "room_version"}
+#Pager
+
+appcompanist-pager = {group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanist_version"}
+appcompanist-pager-indicator = {group = "com.google.accompanist", name = "accompanist-pager-indicators", version.ref = "accompanist_version"}
+appcompanist-placeholder = {group = "com.google.accompanist", name = "accompanist-placeholder-material", version.ref = "placeholder_version"}
+lottie = {group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottieVersion"}
+material-icons-extended = {group = "androidx.compose.material", name = "material-icons-extended", version.ref = "compose_version"}
+
+[bundles]
+ui = ["compose-ui", "ui-tooling-preview","compose-navigation"]
+hilt = ["hilt-android", "hilt-common", "hilt-navigation-compose", "hilt-navigation"]
+retrofit = ["retrofit", "retrofit-gson", "okhttp-logging"]
+appcompanist = ["appcompanist-pager", "appcompanist-pager-indicator", "appcompanist-placeholder"]
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "com-android-application" }
+android-library = {id = "com.android.library", version.ref = "com-android-application"}
+android-kotlin = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin_version" }
+dagger-hilt-android = { id = "com.google.dagger.hilt.android" , version.ref = "hilt_version" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin_version" }
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin_version" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt_version" }
+gms-googleServices = { id = "com.google.gms.google-services", version.ref = "gms-googleServices"}
+firebase-crashlitycs = { id = "com.google.firebase.crashlytics", version.ref = "firebase-crashlytics-gradle"}
