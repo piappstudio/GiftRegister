@@ -12,14 +12,15 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+enableFeaturePreview("VERSION_CATALOGS")
 rootProject.name = "GiftRegister"
-include ':app'
-include ':pitheme'
-include ':authentication'
-include ':welcome'
-include ':register'
-include ':PiModel'
-include ':PiNavigation'
-include ':PiCloud'
-include ':PiNetwork'
-include ':PiAnalytic'
+include (":app")
+include (":pitheme")
+include (":authentication")
+include (":welcome")
+include (":register")
+include (":PiModel")
+include (":PiNavigation")
+include (":PiCloud")
+include (":PiNetwork")
+include (":PiAnalytic")
