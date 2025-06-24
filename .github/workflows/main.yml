@@ -23,9 +23,11 @@ jobs:
     - name: Grant execute permission for gradlew
       run: chmod +x ./gradlew
 
+      # 🔥 Inject google-services.json (for Debug variant)
     - name: Decode google-services.json for Debug
       run: |
-        echo "${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}" | base64 --decode > app/src/debug/google-services.json
+       mkdir -p app/src/debug
+       echo "${{ secrets.GOOGLE_SERVICES_JSON_BASE64 }}" | base64 --decode > app/src/debug/google-services.json
 
     - name: Build Debug APK
       run: ./gradlew assembleDebug
