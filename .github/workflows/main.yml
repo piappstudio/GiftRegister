@@ -32,8 +32,26 @@ jobs:
     - name: Build Debug APK
       run: ./gradlew assembleDebug
 
-    - name: Run Unit Tests
-      run: ./gradlew testDebugUnitTest
+    - name: Run Unit Tests with Coverage
+      run: ./gradlew testDebugUnitTest jacocoTestReport
+
+    # ✅ Upload Code Coverage report (HTML)
+    - name: Upload Code Coverage Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: code-coverage-report
+        path: app/build/reports/jacoco/jacocoTestReport/html/
+
+    # ✅ Run Android Lint
+    - name: Run Android Lint
+      run: ./gradlew lintDebug
+          
+    # ✅ Upload Lint Report
+    - name: Upload Lint Report
+      uses: actions/upload-artifact@v4
+      with:
+        name: lint-report
+        path: app/build/reports/lint-results-debug.html
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
