@@ -12,7 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-enableFeaturePreview("VERSION_CATALOGS")
 rootProject.name = "GiftRegister"
 include (":app")
 include (":pitheme")
